@@ -1,6 +1,6 @@
 package com.example.FaceZup.usuario;
 
-import com.example.FaceZup.chat.Mensagem;
+import com.example.FaceZup.mensagem.Mensagem;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

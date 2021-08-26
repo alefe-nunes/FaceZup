@@ -1,6 +1,5 @@
-package com.example.FaceZup.chat;
+package com.example.FaceZup.mensagem;
 
-import com.example.FaceZup.usuario.Usuario;
 import com.example.FaceZup.usuario.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,16 +20,16 @@ public class MensagemService {
     }
 
     public Mensagem cadastrarMensagem(Mensagem mensagem) {
-        Usuario usuarioOrigem = usuarioService.buscarUsuarioPeloEmail(mensagem.getUsuarioOrigem().getEmail());
-        Usuario usuarioDestino = usuarioService.buscarUsuarioPeloEmail(mensagem.getUsuarioDestino().getEmail());
-
-        mensagem.setUsuarioOrigem(usuarioOrigem);
-        mensagem.setUsuarioDestino(usuarioDestino);
         mensagem.setDataDeEnvio(LocalDate.now());
         mensagem.setVisualizado(false);
-
         return mensagemRepository.save(mensagem);
+
     }
 
 
 }
+
+
+
+
+

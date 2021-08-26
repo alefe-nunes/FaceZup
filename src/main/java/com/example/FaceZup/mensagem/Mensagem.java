@@ -1,4 +1,4 @@
-package com.example.FaceZup.chat;
+package com.example.FaceZup.mensagem;
 
 import com.example.FaceZup.usuario.Usuario;
 
@@ -13,10 +13,8 @@ public class Mensagem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String mensagem;
-    @ManyToOne
-    private Usuario usuarioDestino;
-    @ManyToOne
-    private Usuario usuarioOrigem;
+    private String destino;
+    private String origem;
     private LocalDate dataDeEnvio;
     private boolean visualizado;
 
@@ -39,20 +37,20 @@ public class Mensagem {
         this.mensagem = mensagem;
     }
 
-    public Usuario getUsuarioDestino() {
-        return usuarioDestino;
+    public String getDestino() {
+        return destino;
     }
 
-    public void setUsuarioDestino(Usuario usuarioDestino) {
-        this.usuarioDestino = usuarioDestino;
+    public void setDestino(String destino) {
+        this.destino = destino;
     }
 
-    public Usuario getUsuarioOrigem() {
-        return usuarioOrigem;
+    public String getOrigem() {
+        return origem;
     }
 
-    public void setUsuarioOrigem(Usuario usuarioOrigem) {
-        this.usuarioOrigem = usuarioOrigem;
+    public void setOrigem(String origem) {
+        this.origem = origem;
     }
 
     public LocalDate getDataDeEnvio() {

@@ -1,4 +1,4 @@
-package com.example.FaceZup.chat;
+package com.example.FaceZup.mensagem;
 
 import org.springframework.data.repository.CrudRepository;
 
