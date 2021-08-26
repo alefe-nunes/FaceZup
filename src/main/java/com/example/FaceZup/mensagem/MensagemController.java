@@ -1,5 +1,6 @@
 package com.example.FaceZup.mensagem;
 
+import com.example.FaceZup.mensagem.dtos.CadastroMensagemDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,11 +14,17 @@ public class MensagemController {
     @Autowired
     private MensagemService mensagemService;
 
+
     @PostMapping
-    public Mensagem cadastrarMensagem (@RequestBody Mensagem mensagem) {
-      return   mensagemService.cadastrarMensagem(mensagem);
+    public Mensagem cadastrarMensagem (@RequestBody CadastroMensagemDTO mensagemDTO) {
+      return   mensagemService.cadastrarMensagem(mensagemDTO.getOrigem(),
+              mensagemDTO.getDestino(),
+              mensagemDTO.getMensagem());
 
     }
+
+
+
 
 
 }
