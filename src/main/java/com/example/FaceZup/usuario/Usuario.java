@@ -1,8 +1,12 @@
 package com.example.FaceZup.usuario;
 
+import com.example.FaceZup.chat.Mensagem;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.util.List;
 
 @Entity
 @Table (name = "usuarios")
@@ -13,6 +17,8 @@ public class Usuario {
     @Id
     private String email;
     private String cargo;
+    @OneToMany
+    private List <Mensagem> chat;
 
     public Usuario() {
     }

@@ -20,10 +20,12 @@ public class MensagemService {
         this.usuarioService = usuarioService;
     }
 
-    public Mensagem cadastrarMensagem (String usuarioEmail , Mensagem mensagem) {
-        Usuario usuario = usuarioService.buscarUsuarioPeloEmail(usuarioEmail);
+    public Mensagem cadastrarMensagem(Mensagem mensagem) {
+        Usuario usuarioOrigem = usuarioService.buscarUsuarioPeloEmail(mensagem.getUsuarioOrigem().getEmail());
+        Usuario usuarioDestino = usuarioService.buscarUsuarioPeloEmail(mensagem.getUsuarioDestino().getEmail());
 
-        mensagem.setUsuario (usuario);
+        mensagem.setUsuarioOrigem(usuarioOrigem);
+        mensagem.setUsuarioDestino(usuarioDestino);
         mensagem.setDataDeEnvio(LocalDate.now());
         mensagem.setVisualizado(false);
 

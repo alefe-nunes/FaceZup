@@ -10,28 +10,17 @@ import java.time.LocalDate;
 public class Mensagem {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String mensagem;
-    private Usuario destino;
-    private Usuario origem;
+    @ManyToOne
+    private Usuario usuarioDestino;
+    @ManyToOne
+    private Usuario usuarioOrigem;
     private LocalDate dataDeEnvio;
     private boolean visualizado;
 
-    @ManyToOne
-    @JoinColumn (name = "usuario_origem_email", nullable = false)
-    @JoinColumn (name = "usuario_destino_email" , nullable = false)
-    private Usuario usuario;
-
     public Mensagem() {
-    }
-
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
     }
 
     public Integer getId() {
@@ -50,20 +39,20 @@ public class Mensagem {
         this.mensagem = mensagem;
     }
 
-    public Usuario getDestino() {
-        return destino;
+    public Usuario getUsuarioDestino() {
+        return usuarioDestino;
     }
 
-    public void setDestino(Usuario destino) {
-        this.destino = destino;
+    public void setUsuarioDestino(Usuario usuarioDestino) {
+        this.usuarioDestino = usuarioDestino;
     }
 
-    public Usuario getOrigem() {
-        return origem;
+    public Usuario getUsuarioOrigem() {
+        return usuarioOrigem;
     }
 
-    public void setOrigem(Usuario origem) {
-        this.origem = origem;
+    public void setUsuarioOrigem(Usuario usuarioOrigem) {
+        this.usuarioOrigem = usuarioOrigem;
     }
 
     public LocalDate getDataDeEnvio() {
