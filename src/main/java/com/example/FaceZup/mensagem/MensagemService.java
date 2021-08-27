@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.Optional;
 
 @Service
 public class MensagemService {
@@ -34,6 +35,23 @@ public class MensagemService {
 
         return mensagemRepository.save(objetoMensagem);
 
+    }
+
+    public Mensagem pesquisarMensagemPorID(String email) {
+        Optional<Mensagem> mensagemOptional = mensagemRepository.toString();
+
+        if (mensagemOptional.isPresent()) {
+            return mensagemOptional.get();
+        }
+        throw new RuntimeException("Mensagem não encontrada");
+    }
+
+    public Mensagem visualizarMensagemPorID(String email) {
+        Mensagem mensagem = pesquisarMensagemPorID(email);
+
+        mensagem.setVisualizado(true);
+        mensagemRepository.save(mensagem);
+        return mensagem;
     }
 
 

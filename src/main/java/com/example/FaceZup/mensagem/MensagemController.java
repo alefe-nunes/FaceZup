@@ -23,5 +23,6 @@ public class MensagemController {
 
     }
 
-
+    @RequestMapping("/usuario/perfil/{emailUsuario}”)
+            public Mensagem
 }
