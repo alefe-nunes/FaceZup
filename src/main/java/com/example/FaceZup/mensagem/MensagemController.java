@@ -2,10 +2,7 @@ package com.example.FaceZup.mensagem;
 
 import com.example.FaceZup.mensagem.dtos.CadastroMensagemDTO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/chat")
@@ -23,9 +20,12 @@ public class MensagemController {
 
     }
 
-    @RequestMapping("/usuario/perfil/{emailUsuario}”)
-            public Mensagem
+    @GetMapping("/chat/{mensagemID}")
+    public Mensagem visualizarMensagemPorID(@PathVariable int mensagemID) {
+        return mensagemService.visualizarMensagemPorID(mensagemID);
 
+
+    }
 
 
 }

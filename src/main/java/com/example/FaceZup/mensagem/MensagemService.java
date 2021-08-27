@@ -37,6 +37,14 @@ public class MensagemService {
 
     }
 
+    public Mensagem visualizarMensagemPorID(int id) {
+        Mensagem mensagem = pesquisarMensagemPorID(id);
+
+        mensagem.setVisualizado(true);
+        mensagemRepository.save(mensagem);
+        return mensagem;
+    }
+
     public Mensagem pesquisarMensagemPorID(int id) {
         Optional<Mensagem> mensagemOptional = mensagemRepository.findById(id);
 
@@ -44,14 +52,6 @@ public class MensagemService {
             return mensagemOptional.get();
         }
         throw new RuntimeException("Mensagem não encontrada");
-    }
-
-    public Mensagem visualizarMensagemPorID(int id) {
-        Mensagem mensagem = pesquisarMensagemPorID(id);
-
-        mensagem.setVisualizado(true);
-        mensagemRepository.save(mensagem);
-        return mensagem;
     }
 
 
