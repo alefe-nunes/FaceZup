@@ -1,15 +1,11 @@
 package com.example.FaceZup.mensagem.dtos;
 
-import java.time.LocalDate;
-
 public class CadastroMensagemDTO {
 
     private Integer id;
     private String mensagem;
     private String destino;
     private String origem;
-    private LocalDate dataDeEnvio;
-    private boolean visualizado;
 
     public CadastroMensagemDTO() {
     }
@@ -46,20 +42,6 @@ public class CadastroMensagemDTO {
         this.origem = origem;
     }
 
-    public LocalDate getDataDeEnvio() {
-        return dataDeEnvio;
-    }
 
-    public void setDataDeEnvio(LocalDate dataDeEnvio) {
-        this.dataDeEnvio = dataDeEnvio;
-    }
-
-    public boolean isVisualizado() {
-        return visualizado;
-    }
-
-    public void setVisualizado(boolean visualizado) {
-        this.visualizado = visualizado;
-    }
 }
 
