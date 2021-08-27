@@ -15,16 +15,13 @@ public class MensagemController {
     private MensagemService mensagemService;
 
 
-  @PostMapping
-    public Mensagem cadastrarMensagem (@RequestBody CadastroMensagemDTO mensagemDTO) {
-      return   mensagemService.cadastrarMensagem(mensagemDTO.getOrigem(),
-              mensagemDTO.getDestino(),
-              mensagemDTO.getMensagem());
+    @PostMapping
+    public Mensagem cadastrarMensagem(@RequestBody CadastroMensagemDTO cadastroMensagemDTO) {
+        return mensagemService.cadastrarMensagem(cadastroMensagemDTO.getMensagem(),
+                cadastroMensagemDTO.getDestino(),
+                cadastroMensagemDTO.getOrigem());
 
     }
-
-
-
 
 
 }

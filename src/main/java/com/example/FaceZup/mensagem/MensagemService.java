@@ -19,23 +19,20 @@ public class MensagemService {
         this.usuarioService = usuarioService;
     }
 
-  public Mensagem cadastrarMensagem(Usuario usuario) {
+    public Mensagem cadastrarMensagem(String mensagem, String origem, String destino) {
+
+        Usuario usuarioDestino = usuarioService.buscarUsuarioPeloEmail(destino);
+        Usuario usuarioOrigem = usuarioService.buscarUsuarioPeloEmail(origem);
 
         Mensagem objetoMensagem = new Mensagem();
 
-        objetoMensagem.setUsuario(usuario);
-        objetoMensagem.setDestinoUsuario(destino);
+        objetoMensagem.setUsuario(usuarioOrigem);
+        objetoMensagem.setDestinoUsuario(usuarioDestino);
         objetoMensagem.setMensagem(mensagem);
         objetoMensagem.setDataDeEnvio(LocalDate.now());
         objetoMensagem.setVisualizado(false);
 
         return mensagemRepository.save(objetoMensagem);
-
-    }
-
-    public void pesquisarUsuariopeloEmail(String origem, String destino) {
-        Usuario usuarioDestino = usuarioService.buscarUsuarioPeloEmail(destino);
-        Usuario usuarioOrigem = usuarioService.buscarUsuarioPeloEmail(origem);
 
     }
 
