@@ -37,8 +37,8 @@ public class MensagemService {
 
     }
 
-    public Mensagem pesquisarMensagemPorID(String email) {
-        Optional<Mensagem> mensagemOptional = mensagemRepository.toString();
+    public Mensagem pesquisarMensagemPorID(int id) {
+        Optional<Mensagem> mensagemOptional = mensagemRepository.findById(id);
 
         if (mensagemOptional.isPresent()) {
             return mensagemOptional.get();
@@ -46,8 +46,8 @@ public class MensagemService {
         throw new RuntimeException("Mensagem não encontrada");
     }
 
-    public Mensagem visualizarMensagemPorID(String email) {
-        Mensagem mensagem = pesquisarMensagemPorID(email);
+    public Mensagem visualizarMensagemPorID(int id) {
+        Mensagem mensagem = pesquisarMensagemPorID(id);
 
         mensagem.setVisualizado(true);
         mensagemRepository.save(mensagem);

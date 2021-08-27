@@ -2,17 +2,17 @@ package com.example.FaceZup.mensagem.dtos;
 
 public class MensagemIDDTO {
 
-    private String id;
+    private int id;
 
-    public MensagemIDDTO(String id) {
+    public MensagemIDDTO(int id) {
         this.id = id;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 }
