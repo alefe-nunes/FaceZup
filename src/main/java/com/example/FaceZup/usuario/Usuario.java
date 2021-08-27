@@ -17,7 +17,7 @@ public class Usuario {
     @Id
     private String email;
     private String cargo;
-    @OneToMany
+    @OneToMany (mappedBy = "usuario")
     private List <Mensagem> chat;
 
     public Usuario() {

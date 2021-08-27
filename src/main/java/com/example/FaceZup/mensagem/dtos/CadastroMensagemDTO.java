@@ -62,3 +62,4 @@ public class CadastroMensagemDTO {
         this.visualizado = visualizado;
     }
 }
+

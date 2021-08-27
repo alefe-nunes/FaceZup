@@ -13,8 +13,12 @@ public class Mensagem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String mensagem;
-    private String destino;
-    private String origem;
+    @ManyToOne
+    @JoinColumn (name = "destino" , nullable = false)
+    private Usuario destinoUsuario;
+    @ManyToOne
+    @JoinColumn (name = "origem" , nullable = false)
+    private Usuario usuario;
     private LocalDate dataDeEnvio;
     private boolean visualizado;
 
@@ -37,20 +41,20 @@ public class Mensagem {
         this.mensagem = mensagem;
     }
 
-    public String getDestino() {
-        return destino;
+    public Usuario getDestinoUsuario() {
+        return destinoUsuario;
     }
 
-    public void setDestino(String destino) {
-        this.destino = destino;
+    public void setDestinoUsuario(Usuario destinoUsuario) {
+        this.destinoUsuario = destinoUsuario;
     }
 
-    public String getOrigem() {
-        return origem;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setOrigem(String origem) {
-        this.origem = origem;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     public LocalDate getDataDeEnvio() {

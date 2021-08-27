@@ -15,7 +15,7 @@ public class MensagemController {
     private MensagemService mensagemService;
 
 
-    @PostMapping
+  @PostMapping
     public Mensagem cadastrarMensagem (@RequestBody CadastroMensagemDTO mensagemDTO) {
       return   mensagemService.cadastrarMensagem(mensagemDTO.getOrigem(),
               mensagemDTO.getDestino(),

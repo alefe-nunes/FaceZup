@@ -1,6 +1,5 @@
 package com.example.FaceZup.mensagem;
 
-import com.example.FaceZup.mensagem.dtos.CadastroMensagemDTO;
 import com.example.FaceZup.usuario.Usuario;
 import com.example.FaceZup.usuario.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,28 +19,25 @@ public class MensagemService {
         this.usuarioService = usuarioService;
     }
 
-    public Mensagem cadastrarMensagem(String origem , String destino, String mensagem) {
+  public Mensagem cadastrarMensagem(Usuario usuario) {
 
-        Mensagem mensagemDTO = new Mensagem();
+        Mensagem objetoMensagem = new Mensagem();
 
-        mensagemDTO.setOrigem(origem);
-        mensagemDTO.setDestino(destino);
-        mensagemDTO.setMensagem(mensagem);
-        mensagemDTO.setDataDeEnvio(LocalDate.now());
-        mensagemDTO.setVisualizado(false);
+        objetoMensagem.setUsuario(usuario);
+        objetoMensagem.setDestinoUsuario(destino);
+        objetoMensagem.setMensagem(mensagem);
+        objetoMensagem.setDataDeEnvio(LocalDate.now());
+        objetoMensagem.setVisualizado(false);
 
-        return mensagemRepository.save(mensagemDTO);
+        return mensagemRepository.save(objetoMensagem);
 
     }
 
-        public void pesquisarUsuariopeloEmail (String origem, String destino){
+    public void pesquisarUsuariopeloEmail(String origem, String destino) {
         Usuario usuarioDestino = usuarioService.buscarUsuarioPeloEmail(destino);
         Usuario usuarioOrigem = usuarioService.buscarUsuarioPeloEmail(origem);
 
-        }
-
-
-
+    }
 
 
 }
