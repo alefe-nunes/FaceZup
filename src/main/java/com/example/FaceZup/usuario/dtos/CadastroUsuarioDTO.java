@@ -1,7 +1,5 @@
 package com.example.FaceZup.usuario.dtos;
 
-import javax.persistence.Id;
-
 public class CadastroUsuarioDTO {
 
     private String nome;
