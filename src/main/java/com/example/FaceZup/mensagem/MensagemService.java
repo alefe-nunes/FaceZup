@@ -38,14 +38,14 @@ public class MensagemService {
 
     }
 
-    public List<Mensagem> pesquisarMensagemPor(String email, Boolean visualizado) {
+   public List<Mensagem> pesquisarMensagemPor(String email, Boolean visualizado) {
 
         if (email != null) {
             return mensagemRepository.findAllByVisualizado(visualizado);
         }
 
         if (visualizado != null) {
-            return mensagemRepository.findByUsuarioDestinoContains(email);
+            return mensagemRepository.findAllBydestinoUsuarioContains(email);
         }
 
         return (List<Mensagem>) mensagemRepository.findAll();

@@ -8,7 +8,7 @@ public interface MensagemRepository extends CrudRepository <Mensagem , Integer> 
 
     List <Mensagem> findAllByVisualizado (Boolean visualizado);
 
-    List <Mensagem> findByUsuarioDestinoContains (String email);
+    List <Mensagem> findAllBydestinoUsuarioContains (String email);
 
 
 }
