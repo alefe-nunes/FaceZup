@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -25,7 +26,7 @@ public class UsuarioController {
 
     @RequestMapping(method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
-    public Usuario cadastrarUsuario(@RequestBody CadastroUsuarioDTO usuarioDTO) {
+    public Usuario cadastrarUsuario(@RequestBody @Valid CadastroUsuarioDTO usuarioDTO) {
         return usuarioService.cadastrarUsuario(modelMapper.map(usuarioDTO, Usuario.class));
     }
 

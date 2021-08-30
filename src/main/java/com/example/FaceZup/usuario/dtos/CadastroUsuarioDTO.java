@@ -1,9 +1,18 @@
 package com.example.FaceZup.usuario.dtos;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+
 public class CadastroUsuarioDTO {
 
+    @Min(value = 3, message = "{validacao.nome.usuario.minimo}")
+    @Max(value = 20, message = "{validacao.nome.usuario.maximo}")
     private String nome;
+    @Min(value = 3, message = "{validacao.sobrenome.usuario.minimo}")
+    @Max(value = 20, message = "{validacao.sobrenome.usuario.maximo}")
     private String sobrenome;
+    @Email (message = "{validacao.email.usuario}")
     private String email;
     private String cargo;
 

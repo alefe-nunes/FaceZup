@@ -1,10 +1,15 @@
 package com.example.FaceZup.mensagem.dtos;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+
 public class CadastroMensagemDTO {
 
     private Integer id;
     private String mensagem;
+    @Email(message = "{validacao.mensagem.destino}")
     private String destino;
+    @Email (message = "{validacao.mensagem.origem}")
     private String origem;
 
     public CadastroMensagemDTO() {
