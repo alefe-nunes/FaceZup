@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -34,6 +35,20 @@ public class MensagemService {
         objetoMensagem.setVisualizado(false);
 
         return mensagemRepository.save(objetoMensagem);
+
+    }
+
+    public List<Mensagem> pesquisarMensagemPor(String email, Boolean visualizado) {
+
+        if (email != null) {
+            return mensagemRepository.findAllByVisualizado(visualizado);
+        }
+
+        if (visualizado != null) {
+            return mensagemRepository.findByUsuarioDestinoContains(email);
+        }
+
+        return (List<Mensagem>) mensagemRepository.findAll();
 
     }
 

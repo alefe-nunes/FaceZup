@@ -20,7 +20,7 @@ public class Mensagem {
     @JoinColumn (name = "origem" , nullable = false)
     private Usuario usuario;
     private LocalDate dataDeEnvio;
-    private boolean visualizado;
+    private Boolean visualizado;
 
     public Mensagem() {
     }
