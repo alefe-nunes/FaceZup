@@ -20,7 +20,7 @@ public class MensagemController {
 
     }
 
-    @GetMapping("/chat/{mensagemID}")
+    @GetMapping("/{mensagemID}")
     public Mensagem visualizarMensagemPorID(@PathVariable int mensagemID) {
         return mensagemService.visualizarMensagemPorID(mensagemID);
 
