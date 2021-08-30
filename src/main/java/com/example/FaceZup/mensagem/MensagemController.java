@@ -37,5 +37,11 @@ public class MensagemController {
 
     }
 
+    @GetMapping ("/perfil/{emailUsuario}")
+    public int descobrirNumeroDeMensagensNaoLidas (@RequestParam (required = false) String email) {
+      return  mensagemService.descobrirNumeroDeMensagensNaoLidas(email);
+
+    }
+
 
 }

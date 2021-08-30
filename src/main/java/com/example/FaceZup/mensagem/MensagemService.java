@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -38,19 +39,21 @@ public class MensagemService {
 
     }
 
-   public List<Mensagem> pesquisarMensagemPor(String email, Boolean visualizado) {
+   public List<Mensagem> pesquisarMensagemPor(String email) {
 
         if (email != null) {
-            return mensagemRepository.findAllByVisualizado(visualizado);
-        }
-
-        if (visualizado != null) {
-            return mensagemRepository.findAllBydestinoUsuarioContains(email);
+            return mensagemRepository.findByDestinoUsuarioAndVisualizadoFalse(email);
         }
 
         return (List<Mensagem>) mensagemRepository.findAll();
 
     }
+
+    public Integer descobrirNumeroDeMensagensNaoLidas (String email){
+        int totalDeMensagensNaoLidas = pesquisarMensagemPor (email).size ();
+        return totalDeMensagensNaoLidas;
+    }
+
 
     public Mensagem visualizarMensagemPorID(int id) {
         Mensagem mensagem = pesquisarMensagemPorID(id);

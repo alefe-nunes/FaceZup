@@ -25,20 +25,21 @@ public class UsuarioController {
 
     @RequestMapping(method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
-    public Usuario cadastrarUsuario (@RequestBody CadastroUsuarioDTO usuarioDTO) {
-        return usuarioService.cadastrarUsuario(modelMapper.map(usuarioDTO , Usuario.class));
+    public Usuario cadastrarUsuario(@RequestBody CadastroUsuarioDTO usuarioDTO) {
+        return usuarioService.cadastrarUsuario(modelMapper.map(usuarioDTO, Usuario.class));
     }
 
     @GetMapping("/pefil/{emailUsuario}")
-    public List<MensagemIDDTO> pesquisarMensagemPorEmail(@RequestParam(required = false) String emailUsuario,
-                                                         @RequestParam(required = false) boolean visualizado) {
+    public List<MensagemIDDTO> pesquisarMensagemPorEmail(@RequestParam(required = false) String email)     {
 
-        List<Mensagem> listaDeMensagens = mensagemService.pesquisarMensagemPor(emailUsuario, visualizado);
-        List<MensagemIDDTO> listaDoTipoDto = listaDeMensagens.stream().map(mensagem -> modelMapper.map(mensagem, MensagemIDDTO.class)).collect(Collectors.toList());
+            List<Mensagem> listaDeMensagens = mensagemService.pesquisarMensagemPor(email);
+            List<MensagemIDDTO> listaDoTipoDto = listaDeMensagens.stream().map(mensagem -> modelMapper.map(mensagem, MensagemIDDTO.class)).collect(Collectors.toList());
 
-        return listaDoTipoDto;
+            return listaDoTipoDto;
+        }
+
     }
 
 
 
-}
+

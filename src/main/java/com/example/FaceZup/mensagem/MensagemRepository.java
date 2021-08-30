@@ -4,11 +4,9 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
-public interface MensagemRepository extends CrudRepository <Mensagem , Integer> {
+public interface MensagemRepository extends CrudRepository<Mensagem, Integer> {
 
-    List <Mensagem> findAllByVisualizado (Boolean visualizado);
-
-    List <Mensagem> findAllBydestinoUsuarioContains (String email);
+    List<Mensagem> findByDestinoUsuarioAndVisualizadoFalse(String email);
 
 
 }
