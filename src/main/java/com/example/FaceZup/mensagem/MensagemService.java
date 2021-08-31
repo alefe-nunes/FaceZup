@@ -1,8 +1,10 @@
 package com.example.FaceZup.mensagem;
 
+import com.example.FaceZup.exceptions.MensagemNaoEncontradaException;
 import com.example.FaceZup.usuario.Usuario;
 import com.example.FaceZup.usuario.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.support.MetaDataAccessException;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -68,7 +70,7 @@ public class MensagemService {
         if (mensagemOptional.isPresent()) {
             return mensagemOptional.get();
         }
-        throw new RuntimeException("Mensagem não encontrada");
+        throw new MensagemNaoEncontradaException ("Mensagem não encontrada");
     }
 
 }

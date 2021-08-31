@@ -1,5 +1,6 @@
 package com.example.FaceZup.usuario;
 
+import com.example.FaceZup.exceptions.UsuarioNaoEncontradoException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,7 +23,7 @@ public class UsuarioService {
             return usuarioOptional.get();
         }
 
-        throw new RuntimeException(("Usuário não encontrado"));
+        throw new UsuarioNaoEncontradoException ("Usuário não encontrado");
     }
 
 }
